@@ -1,16 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @bookmark.title %></h1>
+
 <% if @bookmark.image.present? %>
 <p>
-  <strong>画像:</strong>
-  <%= image_tag(image_path(@bookmark.image)) %>
+  <%= image_tag(image_path(@bookmark.image), height: '200px') %>
 </p>
 <% end %>
-
-<p>
-  <strong>タイトル:</strong>
-  <%= @bookmark.title %>
-</p>
 
 <p>
   <strong>メモ:</strong>
