@@ -1,1 +1,11 @@
-# cookpad-internship-2020-summer-pbl
+# README
+
+## build
+```
+docker build
+```
+
+## start container
+```
+docker-compose up -d
+```
