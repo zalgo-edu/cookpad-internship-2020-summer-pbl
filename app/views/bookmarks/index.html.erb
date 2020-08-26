@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>ブックマーク一覧</h1>
+
+<table>
+  <tbody>
+    <% @bookmarks.each do |bookmark| %>
+      <tr>
+        <td><%= link_to bookmark.title, bookmark %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "新しいブックマークを作成する", new_bookmark_path %>

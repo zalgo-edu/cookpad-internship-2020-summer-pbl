@@ -1,0 +1,6 @@
+<h1>ブックマークを修正する</h1>
+
+<%= render 'form', bookmark_form: @bookmark_form, form_url: bookmark_path(@bookmark) %>
+
+<%= link_to 'ブックマークページに戻る', @bookmark %> |
+<%= link_to 'ブックマーク一覧に戻る', bookmarks_path %>

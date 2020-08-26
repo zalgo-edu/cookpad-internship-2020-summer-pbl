@@ -1,2 +1,14 @@
-<h1>Top#index</h1>
-<p>Find me in app/views/top/index.html.erb</p>
+<h1>新着ブックマーク</h1>
+
+<table>
+  <% @recent_bookmarks.each do |bookmark| %>
+    <tr>
+      <td>
+        <% if bookmark.image.present? %>
+          <%= image_tag(image_path(bookmark.image), height: '100px') %>
+        <% end %>
+      </td>
+      <td><%= link_to bookmark.title, bookmark %></td>
+    </tr>
+  <% end %>
+</table>

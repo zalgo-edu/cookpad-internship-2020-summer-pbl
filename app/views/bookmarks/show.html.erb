@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<% if @bookmark.image.present? %>
+<p>
+  <strong>画像:</strong>
+  <%= image_tag(image_path(@bookmark.image)) %>
+</p>
+<% end %>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @bookmark.title %>
+</p>
+
+<p>
+  <strong>メモ:</strong>
+  <%= @bookmark.memo %>
+</p>
+
+<p>
+  <strong>点数:</strong>
+  <%= @bookmark.score %>
+</p>
+
+<%= link_to 'ブックマークを修正する', edit_bookmark_path(@bookmark) %> |
+<%= link_to '一覧に戻る', bookmarks_path %>

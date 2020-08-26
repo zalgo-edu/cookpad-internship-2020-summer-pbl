@@ -1,0 +1,37 @@
+<%= form_with(model: bookmark_form, scope: :bookmark, url: form_url, local: true) do |form| %>
+  <% if bookmark_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bookmark_form.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% bookmark_form.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "タイトル" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label "メモ" %>
+    <%= form.text_field :memo %>
+  </div>
+
+  <div class="field">
+    <%= form.label "画像" %>
+    <%= form.file_field :image, accept: "image/png,image/gif,image/jpeg" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "点数" %>
+    <%= form.number_field :score %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
