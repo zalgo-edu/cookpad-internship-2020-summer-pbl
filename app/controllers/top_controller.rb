@@ -1,5 +1,5 @@
 class TopController < ApplicationController
   def index
-    @recent_bookmarks = Bookmark.order(id: :desc).limit(10)
+    @bookmarks = Bookmark.order(score: :desc)
   end
 end

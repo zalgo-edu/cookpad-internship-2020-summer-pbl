@@ -1,7 +1,7 @@
 <h1>新着ブックマーク</h1>
 
 <table>
-  <% @recent_bookmarks.each do |bookmark| %>
+  <% @bookmarks.each do |bookmark| %>
     <tr>
       <td>
         <% if bookmark.image.present? %>
@@ -9,6 +9,7 @@
         <% end %>
       </td>
       <td><%= link_to bookmark.title, bookmark %></td>
+      <td><%= "#{bookmark.score} pts. / 100 pts." %></td>
     </tr>
   <% end %>
 </table>
