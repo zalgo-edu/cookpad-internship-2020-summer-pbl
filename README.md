@@ -2,7 +2,7 @@
 
 ## build
 ```
-docker build
+docker-compose build
 ```
 
 ## start container
