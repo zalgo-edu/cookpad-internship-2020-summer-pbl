@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label "点数" %>
-    <%= form.number_field :score %>
+    <%= form.number_field :score, {min: 0, max: 100} %>
   </div>
 
   <div class="actions">
