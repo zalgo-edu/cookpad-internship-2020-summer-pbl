@@ -24,4 +24,5 @@
 </p>
 
 <%= link_to 'ブックマークを修正する', edit_bookmark_path(@bookmark) %> |
+<%= link_to 'ブックマークを削除する', @bookmark, method: :delete, data: {confirm: '削除しますか？'} %> |
 <%= link_to '一覧に戻る', bookmarks_path %>
