@@ -2,19 +2,17 @@
 
 <h1>ブックマーク一覧</h1>
 
-<table>
+<div class="grid">
   <% @bookmarks.each do |bookmark| %>
-    <tr>
-      <td>
-        <% if bookmark.image.present? %>
-          <%= image_tag(image_path(bookmark.image), height: '100px') %>
-        <% end %>
-      </td>
-      <td><%= link_to bookmark.title, bookmark %></td>
-      <td><%= "#{bookmark.score} pts. / 100 pts." %></td>
-    </tr>
+    <div class="item">
+      <% if bookmark.image.present? %>
+        <%= link_to image_tag(image_path(bookmark.image)), bookmark %>
+      <% end %>
+      <p><%= link_to bookmark.title, bookmark %></p>
+      <p><%= "#{bookmark.score} pts. / 100 pts." %></p>
+    </div>
   <% end %>
-</table>
-<br>
+</div>
 
+<br>
 <%= link_to "新しいブックマークを作成する", new_bookmark_path %>
