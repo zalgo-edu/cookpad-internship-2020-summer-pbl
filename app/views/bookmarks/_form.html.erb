@@ -28,7 +28,12 @@
 
   <div class="field">
     <%= form.label "点数" %>
-    <input type="range" oninput="this.nextSibling.value = this.value"/><%= form.number_field :score, {min: 0, max: 100, value: 50, onkeyup: "this.previousSibling.value = this.value"} %> pts. / 100 pts.
+    <% if @bookmark_form.score %>
+      <% score = @bookmark_form.score %>
+    <% else %>
+      <% score = 50 %>
+    <% end %>
+    <input type="range" oninput="this.nextSibling.value = this.value"/><%= form.number_field :score, {min: 0, max: 100, value: score, onkeyup: "this.previousSibling.value = this.value"} %> pts. / 100 pts.
   </div>
 
   <div class="actions">
