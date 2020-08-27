@@ -4,7 +4,6 @@ class BookmarkForm
   attr_accessor :title, :memo, :score, :image
 
   validates :title, presence: true, length: { maximum: 255 }
-  validates :memo, presence: true, length: { maximum: 512 }
   validate :validate_image
 
   def initialize(model = nil)
