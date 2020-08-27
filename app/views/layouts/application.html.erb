@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <header>
+      <h1><%= link_to("CookBookmark", root_url, {class: "navbar-brand"}) %></h1>
+      <nav>
+        <ul>
+          <li><%= link_to "ブックマーク一覧", bookmarks_path %></li>
+          <li><%= link_to "新しいブックマークを作成する", new_bookmark_path %></li>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
