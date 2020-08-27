@@ -5,7 +5,7 @@
 docker-compose build
 ```
 
-## start container
+## start server
 ```
 docker-compose up -d
 ```
