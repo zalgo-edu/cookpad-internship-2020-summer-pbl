@@ -1,13 +1,28 @@
-<table>
+<h2>コンセプト</h2>
+<p>
+  あのとき作った美味しかった料理、なんだったっけ… そんな思いを解決するためのサービスです
+</p>
+
+<h2>使い方</h2>
+<p>
+  右上の「新しいブックマークを作成する」ボタンから、今まで作ったことのある料理を登録することができます
+</p>
+
+<h2><%= link_to "ブックマーク一覧", bookmarks_path %></h2>
+<% if @bookmarks.count == 0 %>
+  ブックマークが登録されていません
+<% end %>
+<div class="grid">
   <% @bookmarks.each do |bookmark| %>
-    <tr>
-      <td>
-        <% if bookmark.image.present? %>
-          <%= image_tag(image_path(bookmark.image), height: '100px') %>
-        <% end %>
-      </td>
-      <td><%= link_to bookmark.title, bookmark %></td>
-      <td><%= "#{bookmark.score} pts. / 100 pts." %></td>
-    </tr>
+    <div class="item">
+      <% if bookmark.image.present? %>
+        <%= link_to image_tag(image_path(bookmark.image)), bookmark %>
+      <% end %>
+      <p><%= link_to bookmark.title, bookmark %></p>
+      <p><%= "#{bookmark.score} pts. / 100 pts." %></p>
+    </div>
   <% end %>
-</table>
+</div>
+
+<br>
+<%= link_to "新しいブックマークを作成する", new_bookmark_path %>
