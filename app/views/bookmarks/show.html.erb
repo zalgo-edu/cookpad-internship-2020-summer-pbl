@@ -2,20 +2,21 @@
 
 <h1><%= @bookmark.title %></h1>
 
+
 <% if @bookmark.image.present? %>
 <p>
   <%= image_tag(image_path(@bookmark.image), height: '200px') %>
 </p>
 <% end %>
 
+<h2>点数</h2>
 <p>
-  <strong>メモ:</strong>
-  <%= @bookmark.memo %>
+  <%= "#{@bookmark.score} pts. / 100 pts." %>
 </p>
 
+<h2>メモ</h2>
 <p>
-  <strong>点数:</strong>
-  <%= @bookmark.score %>
+  <%= @bookmark.memo %>
 </p>
 
 <%= link_to 'ブックマークを修正する', edit_bookmark_path(@bookmark) %> |
