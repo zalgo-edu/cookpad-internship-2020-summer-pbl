@@ -6,7 +6,7 @@
   <% @bookmarks.each do |bookmark| %>
     <div class="item">
       <% if bookmark.image.present? %>
-        <%= image_tag(image_path(bookmark.image), height: '100px') %>
+        <%= image_tag(image_path(bookmark.image)) %>
       <% end %>
       <p><%= link_to bookmark.title, bookmark %></p>
       <p><%= "#{bookmark.score} pts. / 100 pts." %></p>
