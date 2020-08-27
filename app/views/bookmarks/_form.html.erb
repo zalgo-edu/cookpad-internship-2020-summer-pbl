@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label "点数" %>
-    <%= form.number_field :score, {min: 0, max: 100} %>
+    <input type="range" oninput="this.nextSibling.value = this.value"/><%= form.number_field :score, {min: 0, max: 100, value: 50, onkeyup: "this.previousSibling.value = this.value"} %> pts. / 100 pts.
   </div>
 
   <div class="actions">
