@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @bookmark.title %></h1>
+<h2><%= @bookmark.title %></h2>
 
 
 <% if @bookmark.image.present? %>
@@ -9,12 +9,12 @@
 </p>
 <% end %>
 
-<h2>点数</h2>
+<h3>点数</h3>
 <p>
   <%= "#{@bookmark.score} pts. / 100 pts." %>
 </p>
 
-<h2>メモ</h2>
+<h3>メモ</h3>
 <p>
 <% if @bookmark.memo.empty? %>
     メモが入力されていません
