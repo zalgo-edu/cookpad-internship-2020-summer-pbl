@@ -7,6 +7,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 WORKDIR /cookbookmark
 COPY Gemfile /cookbookmark/Gemfile
 COPY Gemfile.lock /cookbookmark/Gemfile.lock
+RUN yarn install
 RUN bundle install
 COPY . /cookbookmark
 
