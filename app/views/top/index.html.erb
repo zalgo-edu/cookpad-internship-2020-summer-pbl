@@ -1,3 +1,11 @@
+<script>
+    window.addEventListener('pageshow', () => {
+        const selOpt = document.querySelector(`option[value="/${location.search}"]`);
+        if (selOpt !== null) selOpt.selected = true;
+        else document.querySelector('option[value="/?option=score_desc"]').selected = true;
+    });
+</script>
+
 <h2>コンセプト</h2>
 <p>
   今まで作った美味しい料理を写真・メモ・点数とともに記録しておけるサービスです<br>
@@ -11,22 +19,30 @@
 </p>
 
 <h2><%= link_to "ブックマーク一覧", bookmarks_path %></h2>
+
 <% if @bookmarks.count == 0 %>
   ブックマークが登録されていません
+<% else %>
+  <select name="select" onChange="location.href=value;">
+  	<option value="/?option=score_desc">点数が高い順</option>
+  	<option value="/?option=created_at_desc">作成日時が新しい順</option>
+  	<option value="/?option=score_asc">点数が低い順</option>
+  	<option value="/?option=created_at_asc">作成日時が古い順</option>
+  </select> 
+  <div class="grid">
+    <% @bookmarks.each do |bookmark| %>
+      <div class="item">
+        <% if bookmark.image.present? %>
+          <%= link_to image_tag(image_path(bookmark.image)), bookmark %>
+        <% else %>
+          <%= link_to image_tag('default.png'), bookmark %>
+        <% end %>
+        <p><%= link_to bookmark.title, bookmark %></p>
+        <p><%= "#{bookmark.score} pts. / 100 pts." %></p>
+      </div>
 <% end %>
-<div class="grid">
-  <% @bookmarks.each do |bookmark| %>
-    <div class="item">
-      <% if bookmark.image.present? %>
-        <%= link_to image_tag(image_path(bookmark.image)), bookmark %>
-      <% else %>
-        <%= link_to image_tag('default.png'), bookmark %>
-      <% end %>
-      <p><%= link_to bookmark.title, bookmark %></p>
-      <p><%= "#{bookmark.score} pts. / 100 pts." %></p>
-    </div>
-  <% end %>
 </div>
+<% end %>
 
 <br>
 <%= link_to "新しいブックマークを作成する", new_bookmark_path %>
