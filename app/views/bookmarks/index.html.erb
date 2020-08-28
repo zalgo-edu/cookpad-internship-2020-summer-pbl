@@ -1,6 +1,21 @@
+<script>
+    window.addEventListener('pageshow', () => {
+        const selOpt = document.querySelector(`option[value="/bookmarks${location.search}"]`);
+        if (selOpt !== null) selOpt.selected = true;
+        else document.querySelector('option[value="/bookmarks?option=score_desc"]').selected = true;
+    });
+</script>
+
 <p id="notice"><%= notice %></p>
 
 <h2>ブックマーク一覧</h2>
+
+<select name="select" onChange="location.href=value;">
+	<option value="/bookmarks?option=score_desc">点数が高い順</option>
+	<option value="/bookmarks?option=created_at_desc">作成日時が新しい順</option>
+	<option value="/bookmarks?option=score_asc">点数が低い順</option>
+	<option value="/bookmarks?option=created_at_asc">作成日時が古い順</option>
+</select> 
 
 <div class="grid">
   <% @bookmarks.each do |bookmark| %>
