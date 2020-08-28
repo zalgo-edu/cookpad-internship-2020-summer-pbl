@@ -19,7 +19,7 @@
 <% if @bookmark.memo.empty? %>
     メモが入力されていません
   <% else %>
-  <%= raw Rinku.auto_link(@bookmark.memo, :all, 'target="_blank"') %>
+  <%= raw Rinku.auto_link(safe_join(@bookmark.memo.split("\n"), tag(:br)), :all, 'target="_blank"') %>
   <% end %>
 </p>
 
