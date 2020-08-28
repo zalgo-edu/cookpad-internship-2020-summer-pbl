@@ -3,11 +3,13 @@
 <h2><%= @bookmark.title %></h2>
 
 
-<% if @bookmark.image.present? %>
 <p>
+<% if @bookmark.image.present? %>
   <%= image_tag(image_path(@bookmark.image), height: '200px') %>
-</p>
+<% else %>
+  <%= image_tag('default.png', height: '200px') %>
 <% end %>
+</p>
 
 <h3>点数</h3>
 <p>
